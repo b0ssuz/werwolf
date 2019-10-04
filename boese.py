@@ -1,2 +1,2 @@
 class boese(object):
-	id = boese
+	id = False #False/True : Böse/Gut

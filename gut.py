@@ -1,2 +1,2 @@
 class Gut(object):
-	id = gut
+	id = True #False/True : Böse/Gut
