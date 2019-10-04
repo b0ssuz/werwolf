@@ -1,3 +1,4 @@
 class Karte(object):
-	def __init__():
-		pass
+		lebendig = True
+		def sterben(self):
+			self.lebendig = False
