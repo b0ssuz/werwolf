@@ -1,8 +1,20 @@
-def Hexe(Karte,Gut):
+from Karte import Karte
+from Gut import Gut
+
+
+class Hexe(Karte,Gut):
+	heiltrank = True
+	todestrank = True
+	def heilen(self,other):
+		other.lebendig = True
+		self.heiltrank = False
+	def toeten(self,other):
+		other.lebendig = False
+		self.todestrank = False	
+class Seherin(Karte,Gut):
 	pass
-def Seherin(Karte,Gut):
+class Dorfbewohner(Karte,Gut):
 	pass
-def Dorfbewohner(Karte,Gut):
+class Jason(Karte,Gut):
 	pass
-def Jason(Karte,Gut):
-	pass
+

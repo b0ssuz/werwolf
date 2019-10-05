@@ -1,5 +1,13 @@
+from Rollen import *
+
 def main():
-	pass
+	print("Game::main")
+	print("Testcode")
+	h1 = Hexe()
+	s1 = Seherin()
+	h1.toeten(s1)
+	print(h1.todestrank)
+	print(s1.lebendig)
 
 
 
