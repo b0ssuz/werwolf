@@ -17,4 +17,7 @@ class Dorfbewohner(Karte,Gut):
 	pass
 class Jason(Karte,Gut):
 	pass
+class Jaeger(Karten,Gut):
+	def toeten(self,other):
+		other.lebendig = False
 
