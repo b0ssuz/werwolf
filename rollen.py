@@ -1,7 +1,6 @@
 from Karte import Karte
 from Gut import Gut
 
-
 class Hexe(Karte,Gut):
 	heiltrank = True
 	todestrank = True
