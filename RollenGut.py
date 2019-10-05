@@ -1,6 +1,11 @@
 from Karte import Karte
 from Gut import Gut
 
+"""
+Rollen: Hexe,Seherin,Dorfbewohner,Jason,Jaeger,Reiseleiterin
+"""
+
+
 class Hexe(Karte,Gut):
 	heiltrank = True
 	todestrank = True
@@ -19,4 +24,7 @@ class Jason(Karte,Gut):
 class Jaeger(Karten,Gut):
 	def toeten(self,other):
 		other.lebendig = False
+class Reiseleiterin(Karte,Gut):
+	def in_den_urlaub_schicken(self,other):
+		other.verreist = True
 
