@@ -14,6 +14,9 @@ sock.bind(server_address)
 sock.listen()
 button_pressed = False
 
+
+clients = [] #liste der clients
+
 while True:
     # Wait for a connection
     print('waiting for a connection', file=sys.stderr)
@@ -21,6 +24,9 @@ while True:
 
     try:
             print('connection from', client_address, file=sys.stderr)
+            if client_adress not in clients:
+                clients.append(client_address)
+                print(clients)
 
             # Set non-blocking
             connection.setblocking(0)
@@ -39,7 +45,7 @@ while True:
                 if button_pressed:
                     response = '<body><h1>Los</h1></body>'
                 else:
-                    response = '<body><h1>Hallo Spieler</h1><form action="/active"><input type="submit" value="Start"></form></body>'
+                    response = '<body><h1>Hallo Spieler </h1><form action="/active"><input type="submit" value="Start"></form></body>'
                 response = '<html>' + refresh + response + '</html>'
                 responseHead += 'Content-length: ' + str(len(response)) + '\r\n'
                 response = responseHead + "\r\n" + response
