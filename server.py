@@ -1,6 +1,8 @@
 import select
 import socket
 import sys
+from RollenGut import *
+from RollenBoese import *
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,6 +26,7 @@ while True:
 
     try:
             print('connection from', client_address, file=sys.stderr)
+
             if client_adress not in clients:
                 clients.append(client_address)
                 print(clients)
