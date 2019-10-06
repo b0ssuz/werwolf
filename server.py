@@ -15,8 +15,6 @@ sock.listen()
 button_pressed = False
 
 
-clients = [] #liste der clients
-
 while True:
     # Wait for a connection
     print('waiting for a connection', file=sys.stderr)
@@ -24,10 +22,6 @@ while True:
 
     try:
             print('connection from', client_address, file=sys.stderr)
-
-            if client_adress not in clients:
-                clients.append(client_address)
-                print(clients)
 
             print(connection.getpeername())
 
