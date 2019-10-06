@@ -20,7 +20,10 @@ while True:
     # Wait for a connection
     print('waiting for a connection', file=sys.stderr)
     connection, client_address = sock.accept()
-
+    client = connection.getpeername()[0]
+    print('Client: ', client, file=sys.stderr)
+    d = {}
+    playernumber = 0
     try:
             print('connection from', client_address, file=sys.stderr)
 
@@ -36,19 +39,23 @@ while True:
 
             if data:
                 print('received "%s"' % data, file=sys.stderr)
+                if client not in d.keys():
+                    d[client] = playernumber
+                    playernumber += 1
                 responseHead = 'HTTP/1.1 200 OK\r\n'
                 if data[:11] == b'GET /active':
                     button_pressed = True
                 refresh = '<head><meta http-equiv="refresh" content="15"><title>Werwolf</title></head>'
                 if button_pressed:
-                    response = '<body><h1>Los</h1></body>'
+                    response = '<body><h1>%s</h1></body>' % str(d[client])
+                    #TODO do roles
                 else:
                     response = '<body><h1>Hallo Spieler </h1><form action="/active"><input type="submit" value="Start"></form></body>'
                     response = '<body><h1>Hallo Spieler</h1><form action="/active"><input type="submit" value="Start"></form></body>'
                 response = '<html>' + refresh + response + '</html>'
                 responseHead += 'Content-length: ' + str(len(response)) + '\r\n'
                 response = responseHead + "\r\n" + response
-                print(response)
+    #           print(response)
                 connection.sendall(response.encode())
             else:
                 print('no more data from', client_address, file=sys.stderr)
