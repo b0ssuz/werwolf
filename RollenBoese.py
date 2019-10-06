@@ -13,4 +13,3 @@ class Werwolf(Karte,Boese):
 			other.id = False
 class BabyWerwolf(Karte,Boese):
 	id = True # identität auf Gut gesetzt
-	aktiv = False
