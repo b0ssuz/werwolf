@@ -17,7 +17,7 @@ def startGame():
 	print("game started!")
 
 def server():
-    
+    """ web server """   
     # Create a TCP/IP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -61,6 +61,7 @@ def server():
                     refresh = '<head><meta http-equiv="refresh" content="15"><title>Werwolf</title></head>'
                     if button_pressed:
                         response = '<body><h1>%s</h1></body>' %str(d[client])
+                        # der erste Spieler ist einfach Admin, müssen uns hierfür nochmal was schöneres überlegen :D 
                         if d[client] == 0:
                             response = '<body><h1>Hallo Spieler (Admin)</h1><form action="/active"><input type="submit" value="Start Game"></form></body>' 
                             # if "Start Game"- Button pressed startGame()
