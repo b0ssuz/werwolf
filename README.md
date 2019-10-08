@@ -4,6 +4,6 @@
 
 ### To-Do
 
-[ ] kartenVerteilen funktion schreiben
-[ ] startGame funktion schreiben
-[ ] Grafiken für Spielfiguren 
+[] kartenVerteilen funktion schreiben
+[] startGame funktion schreiben
+[] Grafiken für Spielfiguren 
