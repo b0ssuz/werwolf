@@ -12,7 +12,7 @@ def main():
 	
 
 
-def startGame(anzahlSpieler):
+def startGame(playerDic):
     """ Funktion um eine Spiel Session zu starten """
     print("OK]")
     print("INFO: verteile Karten an ",str(anzahlSpieler)," Spieler",end="..[")
@@ -74,7 +74,7 @@ def server():
                             # if "Start Game"- Button pressed startGame()
                             if data[:11] == b"GET /active": #Soll nur getriggert werden, wenn der Admin auf Start Game drückt
                                 print("INFO: starte spiel ",end="..[")
-                                startGame(len(d))
+                                startGame(d)
                     else:
                         response = '<body><h1>Hallo Spieler </h1><form action="/active"><input type="submit" value="Start"></form></body>'
                         response = '<body><h1>Hallo Spieler</h1><form action="/active"><input type="submit" value="Start"></form></body>'
