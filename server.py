@@ -70,9 +70,9 @@ def server():
                         response = '<body><h1>%s</h1></body>' %str(d[client])
                         # der erste Spieler ist einfach Admin, müssen uns hierfür nochmal was schöneres überlegen :D 
                         if d[client] == 0:
-                            response = '<body><h1>Hallo Spieler (Admin)</h1><form action="/active"><input type="submit" value="Start Game"></form></body>' 
+                            response = '<body><h1>Hallo Spieler (Admin)</h1><form action="/started"><input type="submit" value="Start Game"></form></body>' 
                             # if "Start Game"- Button pressed startGame()
-                            if data[:11] == b"GET /active": #Soll nur getriggert werden, wenn der Admin auf Start Game drückt
+                            if data[:12] == b"GET /started": #Soll nur getriggert werden, wenn der Admin auf Start Game drückt
                                 print("INFO: starte spiel ",end="..[")
                                 startGame(len(d))
                     else:
